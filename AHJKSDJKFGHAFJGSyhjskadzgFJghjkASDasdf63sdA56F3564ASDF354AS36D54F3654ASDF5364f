@@ -1,0 +1,78 @@
+local fuckme = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local UP = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local ALT = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local auto = Instance.new("TextButton")
+
+fuckme.Name = "fuckme"
+fuckme.Parent = game.CoreGui
+fuckme.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = fuckme
+Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Main.BorderColor3 = Color3.fromRGB(255, 85, 255)
+Main.BorderSizePixel = 3
+Main.Position = UDim2.new(0.815902412, 0, 0.852579832, 0)
+Main.Size = UDim2.new(0.177271932, 0, 0.137592182, 0)
+
+UP.Name = "UP"
+UP.Parent = Main
+UP.BackgroundColor3 = Color3.fromRGB(255, 85, 255)
+UP.BorderColor3 = Color3.fromRGB(255, 85, 255)
+UP.BorderSizePixel = 2
+UP.Size = UDim2.new(0.999999046, 0, 0.16096741, 0)
+
+TextLabel.Parent = UP
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(1, 0, 0.999999821, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Horrific Housing"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+ALT.Name = "ALT"
+ALT.Parent = Main
+ALT.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+ALT.BorderColor3 = Color3.fromRGB(255, 85, 255)
+ALT.BorderSizePixel = 0
+ALT.Position = UDim2.new(0, 0, 0.832668543, 0)
+ALT.Size = UDim2.new(0.999999046, 0, 0.167330757, 0)
+
+TextLabel_2.Parent = ALT
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Size = UDim2.new(1, 0, 0.999999821, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Credits - irfan#7830"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+auto.Name = "auto"
+auto.Parent = Main
+auto.BackgroundColor3 = Color3.fromRGB(255, 85, 255)
+auto.BorderSizePixel = 0
+auto.Position = UDim2.new(0.0573815815, 0, 0.280701667, 0)
+auto.Size = UDim2.new(0.880822837, 0, 0.438235313, 0)
+auto.Font = Enum.Font.SourceSans
+auto.Text = "Auto Farm"
+auto.TextColor3 = Color3.fromRGB(0, 0, 0)
+auto.TextScaled = true
+auto.TextSize = 14.000
+auto.TextWrapped = true
+auto.MouseButton1Down:connect(function()
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Remote = ReplicatedStorage.EventRemotes:WaitForChild("GhasterBlaster")
+RunService.RenderStepped:Connect(function()
+    Remote:FireServer("MiissionSuccess3")
+end)
+game.ReplicatedStorage.ShopPurchase:FireServer(-10000, "Ornament")
+end)
